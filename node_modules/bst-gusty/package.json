@@ -1,0 +1,12 @@
+{
+  "name": "bst-gusty",
+  "version": "1.0.0",
+  "description": "Binary search tree data structure",
+  "main": "bst.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
