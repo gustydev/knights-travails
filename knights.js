@@ -21,7 +21,26 @@ function moves(coord) {
             }
         }
     })
-    return array;
+    return array.sort();
 }
-console.log(moves([3,3]))
-console.log(moves([7,7]))
+
+class Square {
+    constructor(coord) {
+        this.square = coord;
+        this.addMoves(coord);
+    }
+    addMoves(coord) {
+        const movesArr = moves(coord);
+        let n = 1;
+        movesArr.forEach((move) => {
+            if (move !== coord) {
+                this[`move-${n}`] = move;
+                n += 1;
+            }
+        })
+    }
+}
+
+const square = new Square([3,3])
+const square2 = new Square([1,2])
+console.log(square, square2)
