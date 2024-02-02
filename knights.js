@@ -1,5 +1,3 @@
-import { Node, Tree, sortArray } from "./node_modules/bst-gusty/bst.js";
-
 function getMoves(coord) {
     let array = [];
     array.push(
@@ -29,9 +27,6 @@ class Square {
         this.path = path;
         this.moves = getMoves(this.square)
     }
-    length() {
-        return this.moves.length;
-    }
 }
 
 function knightTravails([x, y], [a, b]) {
@@ -41,17 +36,12 @@ function knightTravails([x, y], [a, b]) {
     while (current.square[0] !== a || current.square[1] !== b) {
         current.moves.forEach((move) => {
             let sq = new Square(move, current.path.concat([move]));
-            if (sq) {
-                queue.push(sq);
-            }
+            queue.push(sq);
         })
         current = queue.shift();
     }
-    console.log(`Shortest path from [${x}, ${y}] to [${a}, ${b}] is:`)
+    console.log(`Shortest path from [${x}, ${y}] to [${a}, ${b}] (${current.path.length} moves):`)
     current.path.forEach((move) => {
         console.log(move)
     })
 }
-
-console.log(knightTravails([3,3], [0,0]))
-console.log(knightTravails([7,7], [0,0]))
